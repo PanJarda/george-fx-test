@@ -8,7 +8,7 @@
     "build": "webpack --mode=development",
     "build:prod": "webpack --mode=production",
     "dependency-check": "depcruise --config .dependency-cruiser.js src",
-    "generate-dependency-graph": "dependency-cruise -T dot -x node_modules --webpack-config --config .dependency-cruiser.js --max-depth 99 -- src/**/{*.ts,*.tsx}  | dot -T svg > dependencygraph.svg"
+    "generate-dependency-graph": "dependency-cruise -T dot -x node_modules --webpack-config --config .dependency-cruiser.js --collapse 'assets' --max-depth 99 -- src/**/{*.ts,*.tsx}  | dot -T svg > dependencygraph.svg"
   },
   "repository": {
     "type": "git",

@@ -185,6 +185,9 @@ module.exports = {
 		doNotFollow: {
 			path: "node_modules",
 		},
+		exclude: {
+			path: "src/ExchangeRates/assets/flags/index.ts",
+		},
 
 		/* conditions specifying which dependencies to exclude
        - path: a regular expression to match

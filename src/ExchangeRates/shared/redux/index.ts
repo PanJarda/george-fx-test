@@ -4,6 +4,7 @@ import createExchangeRatesResetAction from "./createExchangeRatesResetActiont";
 import createExchangeRatesSagas from "./createExchangeRatesSagas";
 import { ExchangeRates } from "./ExchangeRates";
 import { ExchangeRatesState } from "./ExchangeRatesState";
+import { ExchangeRatesStateSlice } from "./ExchangeRatesStateSlice";
 import { createSetQueryAction } from "./query";
 
 export {
@@ -14,4 +15,4 @@ export {
 	createSetQueryAction,
 };
 
-export type { ExchangeRates, ExchangeRatesState };
+export type { ExchangeRates, ExchangeRatesState, ExchangeRatesStateSlice };

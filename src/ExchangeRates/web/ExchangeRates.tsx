@@ -5,7 +5,8 @@ import {
 	createExchangeRatesResetAction,
 } from "../shared";
 import { useDispatch, useSelector } from "react-redux";
-import { ExchangeRatesStateSlice } from "../shared/redux/ExchangeRatesStateSlice";
+import { ExchangeRatesStateSlice } from "../shared";
+import Flag from "./Flag";
 
 interface ExchangeRatesProps {
 	appPrefix: string;
@@ -30,9 +31,16 @@ const ExchangeRates = ({ appPrefix }: ExchangeRatesProps) => {
 				data={exchangeRates}
 				renderSuccess={(exchangeRates) => (
 					<ul>
-						{exchangeRates.fx.map(({ currency }) => (
-							<li key={currency}>{currency}</li>
-						))}
+						{exchangeRates.fx.map(
+							({ currency, exchangeRate: { middle } }) => {
+								return (
+									<li key={currency}>
+										<Flag currencyCode={currency} />
+										{middle} EUR
+									</li>
+								);
+							}
+						)}
 					</ul>
 				)}
 			/>
