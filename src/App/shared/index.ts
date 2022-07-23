@@ -1,3 +1,4 @@
+import AppPrefixes from "./AppPrefixes";
 import store from "./store";
 
-export { store }
+export { store, AppPrefixes };
