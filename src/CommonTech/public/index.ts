@@ -3,7 +3,6 @@ import { ApiError } from "./ApiError";
 import createApiReducer from "./createApiReducer";
 import { ApiErrorState, ApiState, ApiSuccessState } from "./ApiState";
 import { ApiStatus } from "./ApiStatus";
-import { AppPrefix } from "./AppPrefix";
 import { AppPrefixContext } from "./AppPrefixContext";
 import emptyApiState from "./emptyApiState";
 import SkeletonLoader from "./SkeletonLoader";
@@ -17,5 +16,4 @@ export type {
 	ApiSuccessState,
 	ApiErrorState,
 	AppPrefixContext,
-	AppPrefix,
 };

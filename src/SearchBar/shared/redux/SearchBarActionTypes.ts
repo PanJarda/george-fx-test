@@ -1,3 +1,3 @@
-import { SetQueryActionType } from "./SetQueryActionType";
+import { SetQueryActionType } from "./createSetQueryActionType";
 
 export type { SetQueryActionType };

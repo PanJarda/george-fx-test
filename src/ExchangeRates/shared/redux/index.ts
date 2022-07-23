@@ -3,12 +3,15 @@ import createExchangeRatesRequestAction from "./createExchangeRatesRequestAction
 import createExchangeRatesResetAction from "./createExchangeRatesResetActiont";
 import createExchangeRatesSagas from "./createExchangeRatesSagas";
 import { ExchangeRates } from "./ExchangeRates";
+import { ExchangeRatesState } from "./ExchangeRatesState";
+import { createSetQueryAction } from "./query";
 
 export {
 	createExchangeRatesSagas,
 	createExchangeRatesReducer,
 	createExchangeRatesResetAction,
 	createExchangeRatesRequestAction,
+	createSetQueryAction,
 };
 
-export type { ExchangeRates };
+export type { ExchangeRates, ExchangeRatesState };

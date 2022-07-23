@@ -2,7 +2,7 @@ import { Provider } from "react-redux";
 import { store } from "../shared";
 import ErrorBoundary from "./ErrorBoundary";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Layout from "./Layout";
+import ExchangeRatesPage from "./ExchangeRatesPage";
 
 const App = () => (
 	<ErrorBoundary>
@@ -10,7 +10,7 @@ const App = () => (
 			<BrowserRouter>
 				<Routes>
 					<Route path="/">
-						<Route index element={<Layout />} />
+						<Route index element={<ExchangeRatesPage />} />
 					</Route>
 				</Routes>
 			</BrowserRouter>

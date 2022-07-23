@@ -1,4 +1,6 @@
-import setQueryActionType, { SetQueryActionType } from "./SetQueryActionType";
+import createSetQueryActionType, {
+	SetQueryActionType,
+} from "./createSetQueryActionType";
 import { Action } from "redux";
 
 export interface SetQueryAction extends Action<SetQueryActionType> {
@@ -8,7 +10,7 @@ export interface SetQueryAction extends Action<SetQueryActionType> {
 const createSetQueryAction =
 	(appPrefix: string) =>
 	(query: string): SetQueryAction => ({
-		type: setQueryActionType(appPrefix),
+		type: createSetQueryActionType(appPrefix),
 		query,
 	});
 
