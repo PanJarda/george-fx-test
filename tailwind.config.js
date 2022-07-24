@@ -80,12 +80,19 @@ module.exports = {
 						opacity: 0,
 					},
 				},
+				progress: {
+					"100%": {
+						transform: "translateX(0%)",
+						opacity: 0,
+					},
+				},
 			},
 			transitionProperty: {
 				gridTemplateColumns: "grid-template-columns",
 			},
 			animation: {
 				ripple: "ripple 1s cubic-bezier(0, 0, 0.2, 1) infinite",
+				progress: "progress 3s ease-out infinite",
 			},
 		},
 	},

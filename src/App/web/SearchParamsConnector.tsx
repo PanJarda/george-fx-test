@@ -1,11 +1,10 @@
-import { useEffect } from "react";
+import { PropsWithChildren, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Dispatch } from "redux";
 import { useSearchParams } from "react-router-dom";
 import { AppState } from "../shared";
 
 interface SearchParamsConnectorProps {
-	children: JSX.Element;
 	initalSetSearchParams: (dispatch: Dispatch, params: string) => void;
 	selectSearchParams: (state: AppState) => string;
 }
@@ -14,7 +13,7 @@ const SearchParamsConnector = ({
 	children,
 	initalSetSearchParams,
 	selectSearchParams,
-}: SearchParamsConnectorProps) => {
+}: PropsWithChildren<SearchParamsConnectorProps>): JSX.Element | null => {
 	const dispatch = useDispatch();
 	const [searchParams, setSearchParams] = useSearchParams();
 
@@ -30,7 +29,7 @@ const SearchParamsConnector = ({
 		initalSetSearchParams(dispatch, queryString);
 	}, []);
 
-	return children;
+	return <>{children}</>;
 };
 
 export default SearchParamsConnector;

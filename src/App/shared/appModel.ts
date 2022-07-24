@@ -2,6 +2,8 @@ import { SearchParamsStateSlice } from "./SearchParamsStateSlice";
 import { Dispatch } from "redux";
 import { createSetQueryAction } from "SearchBar/shared";
 import AppPrefixes from "./AppPrefixes";
+import { AppState } from "./AppState";
+import { ApiStatus } from "CommonTech/public";
 
 const appModel = {
 	setSearchParams: (dispatch: Dispatch, params: string) => {
@@ -11,6 +13,9 @@ const appModel = {
 	},
 	selectSearchParams: ({ searchParams }: SearchParamsStateSlice) =>
 		searchParams,
+	selectIsLoading: (state: AppState) =>
+		state[AppPrefixes.EXCHANGE_RATES].exchangeRates.status ===
+		ApiStatus.LOADING,
 };
 
 export default appModel;

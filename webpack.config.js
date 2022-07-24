@@ -69,4 +69,5 @@ module.exports = (env, argv) => ({
 		},
 		minimizer: ["...", new CssMinimizerPlugin()],
 	},
+	devtool: "inline-source-map",
 });

@@ -1,4 +1,4 @@
-import { memo, useCallback, useMemo } from "react";
+import { memo, useMemo } from "react";
 import SearchBarView from "./SearchBarView";
 import SearchBarController from "./SearchBarController";
 import { createSearchBarModel } from "../shared";
@@ -20,26 +20,20 @@ const SearchBar = ({ appPrefix }: SearchBarProps) => {
 	return (
 		<SearchBarController
 			onSetQuery={searchBarModel.setQuery}
-			createView={useCallback(
-				(setQuery) => (
-					<SearchBarView
-						setQuery={setQuery}
-						selectQuery={searchBarModel.selectQuery}
-						render={useCallback(
-							(onInput, value) => (
-								<SearchBarComponent>
-									<SearchInput
-										onInput={onInput}
-										value={value}
-										placeholder="Search"
-									/>
-								</SearchBarComponent>
-							),
-							[]
-						)}
-					/>
-				),
-				[searchBarModel]
+			createView={(setQuery) => (
+				<SearchBarView
+					setQuery={setQuery}
+					selectQuery={searchBarModel.selectQuery}
+					render={(onInput, value) => (
+						<SearchBarComponent>
+							<SearchInput
+								onInput={onInput}
+								value={value}
+								placeholder="Search"
+							/>
+						</SearchBarComponent>
+					)}
+				/>
 			)}
 		/>
 	);
