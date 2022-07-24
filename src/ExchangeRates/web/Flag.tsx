@@ -1,6 +1,7 @@
 import { CountryDescription, CurrencyCodeToISOTable } from "../shared";
 import currencyCodeToISOStateCodes from "../shared/assets/currencyCodesToISOStateCodes.json";
 import flags from "../shared/assets/flags";
+import { ListIcon } from "Components/public";
 
 interface FlagProps {
 	currencyCode: string;
@@ -19,7 +20,10 @@ const Flag = ({ currencyCode }: FlagProps): JSX.Element | null => {
 		isoStateCode && flags.hasOwnProperty(flagName)
 			? (flags[flagName] as string)
 			: null;
-	return flag ? <img src={flag} alt={`${countryName} flag`} /> : null;
+
+	return flag ? (
+		<ListIcon src={flag as string} alt={`${countryName} flag`} />
+	) : null;
 };
 
 export default Flag;

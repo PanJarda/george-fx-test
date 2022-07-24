@@ -8,10 +8,11 @@ const mapResponseToState = (response: ExchangeRatesData): FX[] =>
 		?.filter((fx) => fx.exchangeRate)
 		.map((fx) => ({
 			currency: fx.currency,
-			exchangeRate:
+			exchangeRate: (
 				fx.exchangeRate?.middle ??
 				fx.exchangeRate?.buy ??
-				fx.exchangeRate?.middle,
+				fx.exchangeRate?.sell
+			)?.toFixed(typeof fx.precision !== "undefined" ? fx.precision : 2),
 			currencyName: fx.nameI18N,
 			countryName: (
 				currencyCodesToISOStateCodes as CurrencyCodeToISOTable

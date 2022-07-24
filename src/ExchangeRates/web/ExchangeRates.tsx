@@ -34,11 +34,15 @@ const ExchangeRates = ({ appPrefix }: ExchangeRatesProps) => {
 										exchangeRate,
 										countryName,
 									}) => (
-										<ListItem key={currency}>
-											<Flag currencyCode={currency} />
-											{currencyName} |{countryName} |
-											{exchangeRate} {currency}
-										</ListItem>
+										<ListItem
+											key={currency}
+											icon={
+												<Flag currencyCode={currency} />
+											}
+											title={currencyName ?? currency}
+											subtitle={countryName}
+											badge={`${exchangeRate} ${currency}`}
+										/>
 									)
 								)}
 						</List>

@@ -5,6 +5,7 @@ interface Rate {
 }
 
 export interface FX {
+	precision?: number;
 	currency: string;
 	exchangeRate?: Rate;
 	nameI18N?: string;
