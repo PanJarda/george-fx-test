@@ -14,7 +14,7 @@ const SearchBarController = ({
 	const dispatch = useDispatch();
 
 	const setQuery = useCallback(
-		(query: string) => onSetQuery(dispatch, query),
+		(query: string) => onSetQuery(dispatch, query.trimStart()),
 		[onSetQuery]
 	);
 

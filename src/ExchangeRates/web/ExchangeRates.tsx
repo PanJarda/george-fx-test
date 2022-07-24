@@ -3,7 +3,8 @@ import { createExchangeRatesModel, FX, filterByQuery } from "../shared";
 import ExchangeRatesController from "./ExchangeRatesController";
 import Flag from "./Flag";
 import ExchangeRatesView from "./ExchangeRatesView";
-import { List, ListItem } from "Components/public";
+import { Alert, List, ListItem } from "Components/public";
+import ListItemSkeleton from "../../Components/public/ListItemSkeleton";
 
 interface ExchangeRatesProps {
 	appPrefix: string;
@@ -19,10 +20,25 @@ const ExchangeRates = ({ appPrefix }: ExchangeRatesProps) => {
 		<ExchangeRatesController
 			onMount={exchangeRatesModel.fetchExchangeRates}
 			onUnmount={exchangeRatesModel.resetExchangeRates}
-			renderView={() => (
+			onReset={exchangeRatesModel.resetExchangeRates}
+			renderView={(reset) => (
 				<ExchangeRatesView
 					selectQuery={exchangeRatesModel.selectQuery}
 					selectExchangeRates={exchangeRatesModel.selectExchangeRates}
+					renderLoading={() => (
+						<List>
+							{new Array(5).fill(1).map((v, i) => (
+								//eslint-disable-next-line react/no-array-index-key
+								<ListItemSkeleton key={"skeleton_" + i} />
+							))}
+						</List>
+					)}
+					renderError={() => (
+						<Alert
+							message="We are sorry, but we were unabled to download exchange Rates. Please try again later."
+							onClose={reset}
+						/>
+					)}
 					render={(query: string, exchangeRates: FX[]) => (
 						<List>
 							{exchangeRates

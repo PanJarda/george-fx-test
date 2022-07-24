@@ -6,7 +6,7 @@ interface ListItemProps {
 }
 
 const ListItem = ({ subtitle, icon, title, badge }: ListItemProps) => (
-	<li className="flex py-4 border-b border-b-grey gap-4 h-20 items-center">
+	<li className="flex py-4 border-b border-b-grey gap-4 h-20 items-center last:border-b-0">
 		<div className="w-16">{icon}</div>
 		<div className="flex justify-between grow items-center">
 			<div>

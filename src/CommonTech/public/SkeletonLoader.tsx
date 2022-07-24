@@ -4,20 +4,22 @@ import { ApiStatus } from "./ApiStatus";
 
 interface SkeletonLoaderProps<T> {
 	data: ApiState<T>;
-	loading?: JSX.Element;
 	renderSuccess: (data: T) => JSX.Element;
+	renderLoading?: () => JSX.Element;
 	renderError?: (error: ApiError) => JSX.Element;
 }
+
+const defaultRenderLoading = () => <div>Loading...</div>;
 
 function SkeletonLoader<T>({
 	data,
 	renderSuccess,
-	loading,
 	renderError,
+	renderLoading = defaultRenderLoading,
 }: SkeletonLoaderProps<T>): JSX.Element | null {
 	switch (data.status) {
 		case ApiStatus.LOADING:
-			return loading ?? <div>Loading...</div>;
+			return renderLoading();
 		case ApiStatus.SUCCESS:
 			return renderSuccess((data as ApiSuccessState<T>).data);
 		case ApiStatus.ERROR:

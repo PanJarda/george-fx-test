@@ -6,6 +6,11 @@ const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 module.exports = (env, argv) => ({
 	entry: {
+		...(argv && argv.mode !== "production"
+			? {
+					devtools: "@redux-devtools/extension",
+			  }
+			: {}),
 		main: "./src/App/web/index.tsx",
 	},
 	module: {
@@ -69,5 +74,9 @@ module.exports = (env, argv) => ({
 		},
 		minimizer: ["...", new CssMinimizerPlugin()],
 	},
-	devtool: "inline-source-map",
+	...(argv && argv.mode !== "production"
+		? {
+				devtool: "inline-source-map",
+		  }
+		: {}),
 });

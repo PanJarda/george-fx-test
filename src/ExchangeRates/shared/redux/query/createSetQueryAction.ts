@@ -1,10 +1,9 @@
 import { SetQueryAction } from "./SetQueryAction";
 import createSetQueryActionType from "./createSetQueryActionType";
-import { AppPrefix } from "CommonTech/public";
 import { Query } from "./Query";
 
 const createSetQueryAction =
-	(appPrefix: AppPrefix) =>
+	(appPrefix: string) =>
 	(query: Query): SetQueryAction => ({
 		type: createSetQueryActionType(appPrefix),
 		query,
