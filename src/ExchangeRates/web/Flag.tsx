@@ -1,6 +1,6 @@
 import { CountryDescription, CurrencyCodeToISOTable } from "../shared";
-import currencyCodeToISOStateCodes from "../assets/currencyCodesToISOStateCodes.json";
-import flags from "../assets/flags";
+import currencyCodeToISOStateCodes from "../shared/assets/currencyCodesToISOStateCodes.json";
+import flags from "../shared/assets/flags";
 
 interface FlagProps {
 	currencyCode: string;

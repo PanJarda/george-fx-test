@@ -23,7 +23,7 @@ const SearchBar = ({ appPrefix }: SearchBarProps) => {
 						selectQuery={searchBarModel.selectQuery}
 						render={useCallback(
 							(onInput, value) => (
-								<div>
+								<div className="sticky top-0">
 									<input
 										className="rounded-16 border-1"
 										type="text"

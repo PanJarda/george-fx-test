@@ -24,6 +24,11 @@ const ExchangeRates = ({ appPrefix }: ExchangeRatesProps) => {
 	const exchangeRates = useSelector(
 		(state: ExchangeRatesStateSlice) => state[appPrefix].exchangeRates
 	);
+
+	const query = useSelector(
+		(state: ExchangeRatesStateSlice) => state[appPrefix].query
+	);
+
 	return (
 		<div>
 			ExchangeRates
@@ -31,16 +36,23 @@ const ExchangeRates = ({ appPrefix }: ExchangeRatesProps) => {
 				data={exchangeRates}
 				renderSuccess={(exchangeRates) => (
 					<ul>
-						{exchangeRates.fx.map(
-							({ currency, exchangeRate: { middle } }) => {
+						{exchangeRates
+							.filter(
+								({ currency, currencyName }) =>
+									!query ||
+									currency.startsWith(query.toUpperCase()) ||
+									currencyName
+										?.toLowerCase()
+										.startsWith(query.toLowerCase())
+							)
+							.map(({ currency, exchangeRate }) => {
 								return (
 									<li key={currency}>
 										<Flag currencyCode={currency} />
-										{middle} EUR
+										{exchangeRate} {currency}
 									</li>
 								);
-							}
-						)}
+							})}
 					</ul>
 				)}
 			/>

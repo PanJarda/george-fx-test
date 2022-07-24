@@ -6,8 +6,19 @@ import { ApiStatus } from "./ApiStatus";
 import { AppPrefixContext } from "./AppPrefixContext";
 import emptyApiState from "./emptyApiState";
 import SkeletonLoader from "./SkeletonLoader";
+import { ApiConfiguration } from "./ApiConfiguration";
+import safeSaga from "./safeSaga";
+import createApiErrorAction from "./createApiErrorAction";
+import { ApiErrorAction } from "./ApiErrorAction";
 
-export { createApiReducer, ApiStatus, SkeletonLoader, emptyApiState };
+export {
+	createApiReducer,
+	ApiStatus,
+	SkeletonLoader,
+	emptyApiState,
+	safeSaga,
+	createApiErrorAction,
+};
 
 export type {
 	ApiState,
@@ -16,4 +27,6 @@ export type {
 	ApiSuccessState,
 	ApiErrorState,
 	AppPrefixContext,
+	ApiConfiguration,
+	ApiErrorAction,
 };

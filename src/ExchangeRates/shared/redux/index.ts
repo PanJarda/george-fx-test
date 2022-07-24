@@ -2,7 +2,7 @@ import createExchangeRatesReducer from "./createExchangeRatesReducer";
 import createExchangeRatesRequestAction from "./createExchangeRatesRequestAction";
 import createExchangeRatesResetAction from "./createExchangeRatesResetActiont";
 import createExchangeRatesSagas from "./createExchangeRatesSagas";
-import { ExchangeRates } from "./ExchangeRates";
+import { FX } from "./FX";
 import { ExchangeRatesState } from "./ExchangeRatesState";
 import { ExchangeRatesStateSlice } from "./ExchangeRatesStateSlice";
 import { createSetQueryAction } from "./query";
@@ -15,4 +15,4 @@ export {
 	createSetQueryAction,
 };
 
-export type { ExchangeRates, ExchangeRatesState, ExchangeRatesStateSlice };
+export type { FX, ExchangeRatesState, ExchangeRatesStateSlice };

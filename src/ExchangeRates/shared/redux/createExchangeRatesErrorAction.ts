@@ -1,10 +1,9 @@
-import { ApiError } from "CommonTech/public";
-import { ExchangeRatesErrorAction } from "./ExchangeRatesErrorAction";
+import { ApiError, ApiErrorAction } from "CommonTech/public";
 import createExchangeRatesErrorActionType from "./createExchangeRatesErrorActionType";
 
 const createExchangeRatesErrorAction =
 	(appPrefix: string) =>
-	(error: ApiError): ExchangeRatesErrorAction => ({
+	(error: ApiError): ApiErrorAction => ({
 		type: createExchangeRatesErrorActionType(appPrefix),
 		error,
 	});

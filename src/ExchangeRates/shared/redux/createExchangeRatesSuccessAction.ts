@@ -1,10 +1,10 @@
-import { ExchangeRates } from "./ExchangeRates";
 import createExchangeRatesSuccessActionType from "./createExchangeRatesSuccessActionType";
 import { ExchangeRatesSuccessAction } from "./ExchangeRatesSuccessAction";
+import { FX } from "./FX";
 
 const createExchangeRatesSuccessAction =
 	(appPrefix: string) =>
-	(data: ExchangeRates): ExchangeRatesSuccessAction => ({
+	(data: FX[]): ExchangeRatesSuccessAction => ({
 		type: createExchangeRatesSuccessActionType(appPrefix),
 		data,
 	});

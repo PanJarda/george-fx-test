@@ -10,8 +10,8 @@
 	"Currency": "Australian Dollars"
   },
   "EUR": {
-	"Country": "Saint Pierre and Miquelon",
-	"CountryCode": "PM",
+	"Country": "European Union",
+	"CountryCode": "EU",
 	"Currency": "Euro"
   },
   "GBP": {
@@ -20,8 +20,8 @@
 	"Currency": "Saint Helena pound"
   },
   "USD": {
-	"Country": "US Armed Forces",
-	"CountryCode": "USAF",
+	"Country": "USA",
+	"CountryCode": "US",
 	"Currency": "US Dollar"
   },
   "HKD": {

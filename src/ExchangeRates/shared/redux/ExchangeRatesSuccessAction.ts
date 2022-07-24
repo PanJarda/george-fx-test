@@ -1,8 +1,8 @@
 import { ExchangeRatesSuccessActionType } from "./ExchangeRatesSuccessActionType";
 import { Action } from "redux";
-import { ExchangeRates } from "./ExchangeRates";
+import { FX } from "./FX";
 
 export interface ExchangeRatesSuccessAction
 	extends Action<ExchangeRatesSuccessActionType> {
-	data: ExchangeRates;
+	data: FX[];
 }

@@ -10,7 +10,7 @@ const ExchangeRatesPage = () => {
 			initalSetSearchParams={appModel.setSearchParams}
 			selectSearchParams={appModel.selectSearchParams}
 		>
-			<div>
+			<div className="relative">
 				<div>George FX Test</div>
 				<SearchBar appPrefix={AppPrefixes.SEARCH_BAR} />
 				<ExchangeRates appPrefix={AppPrefixes.EXCHANGE_RATES} />
