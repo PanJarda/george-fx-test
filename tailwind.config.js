@@ -37,9 +37,8 @@ module.exports = {
 				surfaceTint: "#AA352A",
 				surfaceTintColor: "#AA352A",
 			},
-			gridTemplateColumns: {
-				listDetailViewClosed: "max-content auto ",
-				listDetailViewOpen: "max-content auto 30%",
+			gridTemplateRows: {
+				headerBodyLayout: "min-content auto",
 			},
 			keyframes: {
 				ripple: {
@@ -54,9 +53,6 @@ module.exports = {
 						opacity: 0,
 					},
 				},
-			},
-			transitionProperty: {
-				gridTemplateColumns: "grid-template-columns",
 			},
 			animation: {
 				ripple: "ripple 1s cubic-bezier(0, 0, 0.2, 1) infinite",

@@ -13,7 +13,7 @@ const ListItem = ({ subtitle, icon, title, badge }: ListItemProps) => (
 				{title && <h2 className="text-md">{title}</h2>}
 				{subtitle && <p className="text-sm">{subtitle}</p>}
 			</div>
-			{badge && <div className="">{badge}</div>}
+			{badge && <div>{badge}</div>}
 		</div>
 	</li>
 );

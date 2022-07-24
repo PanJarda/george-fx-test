@@ -8,6 +8,10 @@ import SearchInput from "./SearchInput";
 import StickyContainer from "./StickyContainer";
 import ListItemSkeleton from "./ListItemSkeleton";
 import Alert from "./Alert";
+import Center from "./Center";
+import HeaderBodyLayout from "./HeaderBodyLayout";
+
+export * from "./typography";
 
 export {
 	AppHeader,
@@ -20,4 +24,6 @@ export {
 	ListIcon,
 	ListItemSkeleton,
 	Alert,
+	Center,
+	HeaderBodyLayout,
 };

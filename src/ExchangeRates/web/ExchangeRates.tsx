@@ -3,8 +3,7 @@ import { createExchangeRatesModel, FX, filterByQuery } from "../shared";
 import ExchangeRatesController from "./ExchangeRatesController";
 import Flag from "./Flag";
 import ExchangeRatesView from "./ExchangeRatesView";
-import { Alert, List, ListItem } from "Components/public";
-import ListItemSkeleton from "../../Components/public/ListItemSkeleton";
+import { Alert, List, ListItem, ListItemSkeleton } from "Components/public";
 
 interface ExchangeRatesProps {
 	appPrefix: string;
@@ -35,7 +34,7 @@ const ExchangeRates = ({ appPrefix }: ExchangeRatesProps) => {
 					)}
 					renderError={() => (
 						<Alert
-							message="We are sorry, but we were unabled to download exchange Rates. Please try again later."
+							message="We are sorry, but we were unable to download exchange Rates. Please try again later."
 							onClose={reset}
 						/>
 					)}
