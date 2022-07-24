@@ -1,62 +1,55 @@
-import { SkeletonLoader } from "CommonTech/public";
-import { memo, useEffect } from "react";
-import {
-	createExchangeRatesRequestAction,
-	createExchangeRatesResetAction,
-} from "../shared";
-import { useDispatch, useSelector } from "react-redux";
-import { ExchangeRatesStateSlice } from "../shared";
+import { memo, useCallback, useMemo } from "react";
+import { createExchangeRatesModel, FX } from "../shared";
+import ExchangeRatesController from "./ExchangeRatesController";
 import Flag from "./Flag";
+import ExchangeRatesView from "./ExchangeRatesView";
+import filterByQuery from "../shared/filterByQuery";
 
 interface ExchangeRatesProps {
 	appPrefix: string;
 }
 
 const ExchangeRates = ({ appPrefix }: ExchangeRatesProps) => {
-	const dispatch = useDispatch();
-	useEffect(() => {
-		dispatch(createExchangeRatesRequestAction(appPrefix)());
-		return () => {
-			dispatch(createExchangeRatesResetAction(appPrefix)());
-		};
-	}, []);
-
-	const exchangeRates = useSelector(
-		(state: ExchangeRatesStateSlice) => state[appPrefix].exchangeRates
-	);
-
-	const query = useSelector(
-		(state: ExchangeRatesStateSlice) => state[appPrefix].query
+	const exchangeRatesModel = useMemo(
+		() => createExchangeRatesModel(appPrefix),
+		[appPrefix]
 	);
 
 	return (
-		<div>
-			ExchangeRates
-			<SkeletonLoader
-				data={exchangeRates}
-				renderSuccess={(exchangeRates) => (
-					<ul>
-						{exchangeRates
-							.filter(
-								({ currency, currencyName }) =>
-									!query ||
-									currency.startsWith(query.toUpperCase()) ||
-									currencyName
-										?.toLowerCase()
-										.startsWith(query.toLowerCase())
-							)
-							.map(({ currency, exchangeRate }) => {
-								return (
-									<li key={currency}>
-										<Flag currencyCode={currency} />
-										{exchangeRate} {currency}
-									</li>
-								);
-							})}
-					</ul>
-				)}
-			/>
-		</div>
+		<ExchangeRatesController
+			onMount={exchangeRatesModel.fetchExchangeRates}
+			onUnmount={exchangeRatesModel.resetExchangeRates}
+			renderView={useCallback(
+				() => (
+					<ExchangeRatesView
+						selectQuery={exchangeRatesModel.selectQuery}
+						selectExchangeRates={
+							exchangeRatesModel.selectExchangeRates
+						}
+						render={useCallback(
+							(query: string, exchangeRates: FX[]) => (
+								<ul>
+									{exchangeRates
+										.filter(filterByQuery(query))
+										.map(({ currency, exchangeRate }) => {
+											return (
+												<li key={currency}>
+													<Flag
+														currencyCode={currency}
+													/>
+													{exchangeRate} {currency}
+												</li>
+											);
+										})}
+								</ul>
+							),
+							[]
+						)}
+					/>
+				),
+				[exchangeRatesModel]
+			)}
+		/>
 	);
 };
 
