@@ -1,5 +1,7 @@
 import { ExchangeRatesData } from "../api";
 import { FX } from "./FX";
+import currencyCodesToISOStateCodes from "../assets/currencyCodesToISOStateCodes.json";
+import { CurrencyCodeToISOTable } from "../CurrencyCodeToISOTable";
 
 const mapResponseToState = (response: ExchangeRatesData): FX[] =>
 	response.fx
@@ -11,6 +13,9 @@ const mapResponseToState = (response: ExchangeRatesData): FX[] =>
 				fx.exchangeRate?.buy ??
 				fx.exchangeRate?.middle,
 			currencyName: fx.nameI18N,
+			countryName: (
+				currencyCodesToISOStateCodes as CurrencyCodeToISOTable
+			)[fx.currency]?.Country,
 		}))
 		.sort((a, b) =>
 			a.currency < b.currency ? -1 : a.currency > b.currency ? 1 : 0

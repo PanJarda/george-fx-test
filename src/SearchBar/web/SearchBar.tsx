@@ -2,6 +2,10 @@ import { memo, useCallback, useMemo } from "react";
 import SearchBarView from "./SearchBarView";
 import SearchBarController from "./SearchBarController";
 import { createSearchBarModel } from "../shared";
+import {
+	SearchBar as SearchBarComponent,
+	SearchInput,
+} from "Components/public";
 
 interface SearchBarProps {
 	appPrefix: string;
@@ -23,14 +27,13 @@ const SearchBar = ({ appPrefix }: SearchBarProps) => {
 						selectQuery={searchBarModel.selectQuery}
 						render={useCallback(
 							(onInput, value) => (
-								<div className="sticky top-0">
-									<input
-										className="rounded-16 border-1"
-										type="text"
+								<SearchBarComponent>
+									<SearchInput
 										onInput={onInput}
 										value={value}
+										placeholder="Search"
 									/>
-								</div>
+								</SearchBarComponent>
 							),
 							[]
 						)}

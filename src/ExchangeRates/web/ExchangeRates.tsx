@@ -30,16 +30,28 @@ const ExchangeRates = ({ appPrefix }: ExchangeRatesProps) => {
 								<ul>
 									{exchangeRates
 										.filter(filterByQuery(query))
-										.map(({ currency, exchangeRate }) => {
-											return (
-												<li key={currency}>
-													<Flag
-														currencyCode={currency}
-													/>
-													{exchangeRate} {currency}
-												</li>
-											);
-										})}
+										.map(
+											({
+												currency,
+												currencyName,
+												exchangeRate,
+												countryName,
+											}) => {
+												return (
+													<li key={currency}>
+														<Flag
+															currencyCode={
+																currency
+															}
+														/>
+														{currencyName} |
+														{countryName} |
+														{exchangeRate}{" "}
+														{currency}
+													</li>
+												);
+											}
+										)}
 								</ul>
 							),
 							[]
