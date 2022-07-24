@@ -1,9 +1,8 @@
 import { memo, useCallback, useMemo } from "react";
-import { createExchangeRatesModel, FX } from "../shared";
+import { createExchangeRatesModel, FX, filterByQuery } from "../shared";
 import ExchangeRatesController from "./ExchangeRatesController";
 import Flag from "./Flag";
 import ExchangeRatesView from "./ExchangeRatesView";
-import filterByQuery from "../shared/filterByQuery";
 
 interface ExchangeRatesProps {
 	appPrefix: string;
