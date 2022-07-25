@@ -1,3 +1,1 @@
-import { AppPrefix } from "CommonTech/public";
-
-export type SetQueryActionType = `${AppPrefix}_SET_QUERY`;
+export type SetQueryActionType = `${string}_SET_QUERY`;

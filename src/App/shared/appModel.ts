@@ -4,8 +4,9 @@ import { createSetQueryAction } from "SearchBar/shared";
 import AppPrefixes from "./AppPrefixes";
 import { AppState } from "./AppState";
 import { ApiStatus } from "CommonTech/public";
+import { IAppModel } from "./IAppModel";
 
-const appModel = {
+const appModel: IAppModel = {
 	setSearchParams: (dispatch: Dispatch, params: string) => {
 		const searchParams = new URLSearchParams(params);
 		const query = searchParams.get("q") || "";

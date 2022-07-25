@@ -4,8 +4,9 @@ import {
 	ExchangeRatesStateSlice,
 } from "./redux";
 import { Dispatch } from "redux";
+import { ExchangeRatesModel } from "./ExchangeRatesModel";
 
-const createExchangeRatesModel = (appPrefix: string) => {
+const createExchangeRatesModel = (appPrefix: string): ExchangeRatesModel => {
 	const createRequestAction = createExchangeRatesRequestAction(appPrefix);
 	const createResetAction = createExchangeRatesResetAction(appPrefix);
 	return {
