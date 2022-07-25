@@ -3,12 +3,12 @@ import { emptySearchBarState, SearchBarState } from "./SearchBarState";
 import createSetQueryActionType from "./createSetQueryActionType";
 
 const createSearchBarReducer =
-	(actionTypePrefix: string) =>
+	(appPrefix: string) =>
 	(
 		state: SearchBarState = emptySearchBarState,
 		{ type, query }: SearchBarAction
 	): SearchBarState =>
-		type === createSetQueryActionType(actionTypePrefix)
+		type === createSetQueryActionType(appPrefix)
 			? { ...state, query }
 			: state;
 
